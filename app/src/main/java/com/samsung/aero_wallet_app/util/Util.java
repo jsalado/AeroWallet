@@ -45,6 +45,8 @@ public class Util {
 
     public static final String CONNECTION_ERROR = "Please check internet connection";
     public static final String WALLET_NOT_SET = "Please configure your hardware-wallet first";
+    // JS Added this to show an appropriate message when developer mode is not enabled in Samsung Blockchain Keystore or no API key configured
+    public static final String APK_SIGNATURE = "To use AeroWallet, configure Samsung Blockchain Keystore in developer mode.\n\nCheck https://developer.samsung.com/blockchain/keystore/pgm-guide/getting-started";
 
     private Util() {
     }
@@ -115,7 +117,7 @@ public class Util {
     public static boolean isInternetConnectionAvailable() {
         Runtime runtime = Runtime.getRuntime();
         try {
-            Process ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8");  // ping Google Public DNS
+            Process ipProcess = runtime.exec("system/bin/ping -c 1 8.8.8.8");  // ping Google Public DNS
             int exitValue = ipProcess.waitFor();
             return (exitValue == 0);
         } catch (Exception e) {

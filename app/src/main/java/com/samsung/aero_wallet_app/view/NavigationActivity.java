@@ -115,6 +115,11 @@ public class NavigationActivity extends AppCompatActivity {
                 if (exceptionOccurred.getMessage().contains("AccountException")) {
                     AlertUtil.showAlertDialog(NavigationActivity.this,
                             Util.removeSDKSignatureFromErrorMessage(exceptionOccurred.getMessage()));
+                // JS Added a check to see if apk signature is okay or if the Blockchain Keystore is enabled
+                } else if (exceptionOccurred.getMessage().contains("apkSignature")) {
+                    SharedPreferenceManager.setValid(false);
+                    mSetupViewModel.disconnectHardwareWallet();
+                    AlertUtil.showActivityCloseAlertDialogWithLink(NavigationActivity.this, Util.APK_SIGNATURE, true);
                 } else {
                     AlertUtil.showActivityCloseAlertDialog(NavigationActivity.this, Util.CONNECTION_ERROR, true);
                 }
@@ -134,6 +139,11 @@ public class NavigationActivity extends AppCompatActivity {
                     SharedPreferenceManager.setValid(false);
                     mSetupViewModel.disconnectHardwareWallet();
                     AlertUtil.showActivityCloseAlertDialog(NavigationActivity.this, Util.WALLET_NOT_SET, true);
+                // JS Added a check to see if apk signature is okay or if the Blockchain Keystore is enabled
+                } else if (exceptionOccurred.getMessage().contains("apkSignature")) {
+                    SharedPreferenceManager.setValid(false);
+                    mSetupViewModel.disconnectHardwareWallet();
+                    AlertUtil.showActivityCloseAlertDialogWithLink(NavigationActivity.this, Util.APK_SIGNATURE, true);
                 } else {
                     AlertUtil.showActivityCloseAlertDialog(NavigationActivity.this, Util.CONNECTION_ERROR, true);
                 }
