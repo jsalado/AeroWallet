@@ -47,6 +47,7 @@ public class Util {
     public static final String WALLET_NOT_SET = "Please configure your hardware-wallet first";
     // JS Added this to show an appropriate message when developer mode is not enabled in Samsung Blockchain Keystore or no API key configured
     public static final String APK_SIGNATURE = "To use AeroWallet, configure Samsung Blockchain Keystore in developer mode.\n\nCheck https://developer.samsung.com/blockchain/keystore/pgm-guide/getting-started";
+    public static final String REMOTE_SCREEN = "For security reasons, Samsung Blockchain features cannot be used while connected to a remote screen";
 
     private Util() {
     }

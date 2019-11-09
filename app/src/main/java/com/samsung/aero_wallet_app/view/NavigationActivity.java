@@ -120,6 +120,10 @@ public class NavigationActivity extends AppCompatActivity {
                     SharedPreferenceManager.setValid(false);
                     mSetupViewModel.disconnectHardwareWallet();
                     AlertUtil.showActivityCloseAlertDialogWithLink(NavigationActivity.this, Util.APK_SIGNATURE, true);
+                } else if (exceptionOccurred.getMessage().contains("ERROR_EXTERNAL_DISPLAY_NOT_ALLOWED")) {
+                    SharedPreferenceManager.setValid(false);
+                    mSetupViewModel.disconnectHardwareWallet();
+                    AlertUtil.showActivityCloseAlertDialogWithLink(NavigationActivity.this, Util.REMOTE_SCREEN, true);
                 } else {
                     AlertUtil.showActivityCloseAlertDialog(NavigationActivity.this, Util.CONNECTION_ERROR, true);
                 }
@@ -144,6 +148,10 @@ public class NavigationActivity extends AppCompatActivity {
                     SharedPreferenceManager.setValid(false);
                     mSetupViewModel.disconnectHardwareWallet();
                     AlertUtil.showActivityCloseAlertDialogWithLink(NavigationActivity.this, Util.APK_SIGNATURE, true);
+                } else if (exceptionOccurred.getMessage().contains("ERROR_EXTERNAL_DISPLAY_NOT_ALLOWED")) {
+                    SharedPreferenceManager.setValid(false);
+                    mSetupViewModel.disconnectHardwareWallet();
+                    AlertUtil.showActivityCloseAlertDialogWithLink(NavigationActivity.this, Util.REMOTE_SCREEN, true);
                 } else {
                     AlertUtil.showActivityCloseAlertDialog(NavigationActivity.this, Util.CONNECTION_ERROR, true);
                 }
